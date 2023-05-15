@@ -1,0 +1,28 @@
+<template>
+    <!--Na home do aplicativo de vendas, deve possuir um componente lightning que permita a criação de uma oportunidade 
+        rápida com as informações de nome da oportunidade, valor da oportunidade, data de fechamento, nome da conta e fase.-->
+    <lightning-card>
+        <div class="header-wrapper">
+            <div class="header-image">
+                <img src={imgCarrinho}></img>
+            </div>
+            <header class="titulo">Meu Carrinho - Nova Oportunidade</header>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-record-edit-form object-api-name="Opportunity" onsubmit={handleSubmit} onsuccess={handleSuccess}
+                onerror={handleErro}><!--Vai inserir o Oportunidade-->
+                <lightning-input-field field-name="Name"></lightning-input-field>
+                <lightning-input-field field-name="AccountId"></lightning-input-field>
+                <lightning-input-field field-name="Amount"></lightning-input-field>
+                <lightning-input-field field-name="CloseDate"></lightning-input-field>
+                <lightning-input-field field-name=StageName></lightning-input-field>
+                <!--Botão para criar uma oportunidade ele é do tipo submit assim ativa o evento de submit do formulatio-->
+                <div class="botao">
+                    <lightning-button label="Criar Oportunidade" variant="brand"
+                        type="submit"></lightning-button>&nbsp;&nbsp;&nbsp;
+                    <lightning-button label="Resetar Campos" variant="brand" onclick={handleReset}></lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>
